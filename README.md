@@ -49,10 +49,9 @@ This project is designed for **cybersecurity research, threat intelligence, and 
 
 ## 📦 Installation
 
-### 1️⃣ Backend Setup (Python)
+### FROMTENT
 
 ```bash
-pip install fastapi uvicorn aiohttp requests
 
 import { useState } from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Input } from "@/components/ui/input"; import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
