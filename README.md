@@ -122,7 +122,7 @@ SQLite Database
 Graph Intelligence Engine
 ```
 
-### FRONTENT
+### FRONTEND
 
 ```bash
 
