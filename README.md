@@ -1,3 +1,59 @@
+# 🔥 OSINT GOD MODE v2
+
+Advanced Open-Source Intelligence (OSINT) platform built with **FastAPI backend + React dashboard + plugin-based reconnaissance engine**.
+
+This project is designed for **cybersecurity research, threat intelligence, and OSINT learning purposes**.
+
+---
+
+## 🧠 Features
+
+### ⚡ Intelligence Modules
+- 🌐 Social media footprint scanning (GitHub, Twitter, Instagram, Reddit, TikTok)
+- 📡 IP geolocation & network intelligence
+- 🧾 Domain WHOIS + DNS enumeration
+- 📧 Email validation + breach database check
+- 📱 Telegram username OSINT scanner
+
+---
+
+### 🧠 Core Engine
+- 🔌 Plugin-based architecture (easily extendable modules)
+- 🕸 Relationship graph system (nodes + edges)
+- ⚡ Async scanning engine (aiohttp support)
+- 🤖 AI risk scoring system
+- 💾 SQLite local intelligence database
+
+---
+
+### 🌐 API System (FastAPI SOC Panel)
+
+| Endpoint | Description |
+|----------|-------------|
+| `/scan/{target}` | Full OSINT scan |
+| `/email/{email}` | Email intelligence + breach check |
+| `/telegram/{username}` | Telegram OSINT check |
+| `/graph` | Relationship graph data |
+| `/` | System status |
+
+---
+
+## 🎮 Frontend Dashboard (React)
+
+- 🔥 Cyber SOC-style UI (dark mode)
+- 📊 Real-time intelligence output viewer
+- 🧠 Full scan / email / telegram panels
+- ⚡ Live API integration with FastAPI backend
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Backend Setup (Python)
+
+```bash
+pip install fastapi uvicorn aiohttp requests
+
 import { useState } from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Input } from "@/components/ui/input"; import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 export default function OSINTDashboard() { const [target, setTarget] = useState(""); const [email, setEmail] = useState(""); const [telegram, setTelegram] = useState(""); const [result, setResult] = useState(null);
