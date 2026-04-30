@@ -107,22 +107,21 @@ http://localhost:8000/telegram/username
 
 🕸 System Architecture
 
-Frontend (React Dashboard)
-        ↓
-FastAPI Backend (OSINT Engine)
-        ↓
-| ------------------------------ | 
-| | Modules Layer              | | 
-| | - Social Scanner           | |
-| | - IP Intelligence          | |
-| | - Domain + DNS Recon       | |
-| | - Email Breach Checker     | | 
-| | - Telegram OSINT Module    | |
-| ------------------------------ |
-        ↓
-SQLite Database
-        ↓
-Graph Intelligence Engine
+| Layer / Component        | Description |
+|--------------------------|-------------|
+| 🎮 Frontend              | React Dashboard (UI for OSINT operations, scan control, result visualization) |
+| ⚙️ Backend               | FastAPI OSINT Engine (API server handling all intelligence requests) |
+| ───────────────────────  | ───────────────────────────────────────────── |
+| 🔌 Modules Layer         | Core intelligence modules system |
+| ├─ 🌐 Social Scanner     | Username footprint search across platforms |
+| ├─ 📡 IP Intelligence    | IP geolocation + network analysis |
+| ├─ 🧾 Domain + DNS Recon | WHOIS + DNS enumeration + domain intelligence |
+| ├─ 📧 Email Checker      | Email validation + breach database check |
+| ├─ 📱 Telegram Module    | Telegram username OSINT lookup |
+| ───────────────────────  | ───────────────────────────────────────────── |
+| 💾 Database              | SQLite (stores all collected intelligence data locally) |
+| 🕸 Graph Engine          | Relationship mapping (nodes + edges visualization system) |
+
 
 ### FRONTEND
 
