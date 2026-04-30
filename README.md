@@ -102,7 +102,7 @@ http://localhost:8000/email/test@gmail.com
 ```bash
 http://localhost:8000/telegram/username
 ```
----
+
 ## How It Works 
 
 🕸 System Architecture
@@ -111,19 +111,19 @@ Frontend (React Dashboard)
         ↓
 FastAPI Backend (OSINT Engine)
         ↓
-------------------------------
-| Modules Layer              |
-| - Social Scanner           |
-| - IP Intelligence          |
-| - Domain + DNS Recon       |
-| - Email Breach Checker     |
-| - Telegram OSINT Module    |
-------------------------------
+| ------------------------------ | 
+| | Modules Layer              | | 
+| | - Social Scanner           | |
+| | - IP Intelligence          | |
+| | - Domain + DNS Recon       | |
+| | - Email Breach Checker     | | 
+| | - Telegram OSINT Module    | |
+| ------------------------------ |
         ↓
 SQLite Database
         ↓
 Graph Intelligence Engine
----
+
 ### FRONTEND
 
 ```bash
