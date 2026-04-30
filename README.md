@@ -49,7 +49,22 @@ This project is designed for **cybersecurity research, threat intelligence, and 
 
 ## 📦 Installation
 
-### FROMTENT
+
+
+## FRONTEND INSTALL
+
+```bash
+npm install
+npm install react react-dom
+```
+```bash
+npm create vite@latest osint-ui
+cd osint-ui
+npm install
+npm run dev
+```
+
+### FRONTENT
 
 ```bash
 
