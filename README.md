@@ -48,8 +48,21 @@ This project is designed for **cybersecurity research, threat intelligence, and 
 ---
 
 ## 📦 Installation
-
-
+```bash
+git clone https://github.com/SentraSecurity/OSINT-SEARCHER.git
+```
+```bash
+python -m venv venv
+```
+```bash
+python3 -m venv venv
+```
+```bash
+pip install -r requements.txt
+```
+```bash
+python3 OSINT.py
+```
 
 ## FRONTEND INSTALL
 
@@ -62,6 +75,51 @@ npm create vite@latest osint-ui
 cd osint-ui
 npm install
 npm run dev
+```
+Frontend Setup (React)
+Create project:
+```bash
+npm create vite@latest osint-ui
+cd osint-ui
+npm install
+npm run dev
+```
+🔗 Configuration
+Inside frontend code:
+```bash
+const API = "http://localhost:8000";
+```
+🧪 Usage
+🔎 Full Scan
+```bash
+http://localhost:8000/scan/target
+```
+📧 Email Scan
+```bash
+http://localhost:8000/email/test@gmail.com
+```
+📱 Telegram Scan
+```bash
+http://localhost:8000/telegram/username
+```
+🕸 System Architecture
+```bash
+Frontend (React Dashboard)
+        ↓
+FastAPI Backend (OSINT Engine)
+        ↓
+------------------------------
+| Modules Layer              |
+| - Social Scanner           |
+| - IP Intelligence          |
+| - Domain + DNS Recon       |
+| - Email Breach Checker     |
+| - Telegram OSINT Module    |
+------------------------------
+        ↓
+SQLite Database
+        ↓
+Graph Intelligence Engine
 ```
 
 ### FRONTENT
