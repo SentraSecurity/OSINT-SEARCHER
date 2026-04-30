@@ -102,8 +102,11 @@ http://localhost:8000/email/test@gmail.com
 ```bash
 http://localhost:8000/telegram/username
 ```
+---
+## How It Works 
+
 🕸 System Architecture
-```bash
+
 Frontend (React Dashboard)
         ↓
 FastAPI Backend (OSINT Engine)
@@ -120,8 +123,7 @@ FastAPI Backend (OSINT Engine)
 SQLite Database
         ↓
 Graph Intelligence Engine
-```
-
+---
 ### FRONTEND
 
 ```bash
