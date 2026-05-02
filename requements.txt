@@ -1,8 +1,4 @@
-threading
 requests
-asyncio
-re
-datetime
-FastAPI
-uvicorn
+fastapi
+uvicorn[standard]
 aiohttp
