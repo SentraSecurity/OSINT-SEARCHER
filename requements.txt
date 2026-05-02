@@ -1,6 +1,3 @@
-os
-json
-sqlite3
 threading
 requests
 asyncio
