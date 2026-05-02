@@ -52,10 +52,10 @@ This project is designed for **cybersecurity research, threat intelligence, and 
 git clone https://github.com/SentraSecurity/OSINT-SEARCHER.git
 ```
 ```bash
-python -m venv venv
+python3 -m venv venv
 ```
 ```bash
-python3 -m venv venv
+source venv/bin/activate
 ```
 ```bash
 pip install -r requements.txt
