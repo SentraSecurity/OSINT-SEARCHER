@@ -338,3 +338,229 @@ if __name__ == "__main__":
     threading.Thread(target=menu, daemon=True).start()
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# =========================
+# FRONTEND SUPPORT (CORS)
+# =========================
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# =========================
+# REPORT GENERATOR
+# =========================
+def generate_report(target):
+    conn = sqlite3.connect(DB)
+    c = conn.cursor()
+
+    c.execute("SELECT * FROM intel WHERE target=?", (target,))
+    rows = c.fetchall()
+
+    report = {
+        "target": target,
+        "generated_at": str(datetime.now()),
+        "records": []
+    }
+
+    for row in rows:
+        report["records"].append({
+            "module": row[2],
+            "data": json.loads(row[3]) if row[3] else {},
+            "timestamp": row[4]
+        })
+
+    filename = f"report_{target}.json"
+
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=4)
+
+    return {
+        "status": "REPORT GENERATED",
+        "file": filename
+    }
+
+
+# =========================
+# DATABASE SEARCH
+# =========================
+@app.get("/intel/{target}")
+def get_intel(target: str):
+    conn = sqlite3.connect(DB)
+    c = conn.cursor()
+
+    c.execute("SELECT * FROM intel WHERE target=?", (target,))
+    rows = c.fetchall()
+
+    intel_data = []
+
+    for row in rows:
+        intel_data.append({
+            "id": row[0],
+            "target": row[1],
+            "module": row[2],
+            "data": row[3],
+            "timestamp": row[4]
+        })
+
+    conn.close()
+
+    return {
+        "target": target,
+        "records": intel_data
+    }
+
+
+# =========================
+# REPORT API
+# =========================
+@app.get("/report/{target}")
+def report(target: str):
+    return generate_report(target)
+
+
+# =========================
+# FULL GRAPH EXPORT
+# =========================
+@app.get("/graph/full")
+def full_graph():
+    return {
+        "nodes": list(GRAPH["nodes"]),
+        "edges": GRAPH["edges"],
+        "total_nodes": len(GRAPH["nodes"]),
+        "total_edges": len(GRAPH["edges"])
+    }
+
+
+# =========================
+# DASHBOARD STATS
+# =========================
+@app.get("/stats")
+def stats():
+    conn = sqlite3.connect(DB)
+    c = conn.cursor()
+
+    c.execute("SELECT COUNT(*) FROM intel")
+    total_records = c.fetchone()[0]
+
+    c.execute("SELECT COUNT(DISTINCT target) FROM intel")
+    unique_targets = c.fetchone()[0]
+
+    c.execute("SELECT COUNT(DISTINCT module) FROM intel")
+    active_modules = c.fetchone()[0]
+
+    conn.close()
+
+    return {
+        "database_records": total_records,
+        "unique_targets": unique_targets,
+        "active_modules": active_modules,
+        "graph_nodes": len(GRAPH["nodes"]),
+        "graph_edges": len(GRAPH["edges"]),
+        "system_status": "ACTIVE"
+    }
+
+
+# =========================
+# ADVANCED FULL SCAN
+# =========================
+def advanced_full_scan(target):
+    result = full_scan(target)
+
+    report = generate_report(target)
+
+    return {
+        "scan_result": result,
+        "report": report,
+        "graph": {
+            "nodes": list(GRAPH["nodes"]),
+            "edges": GRAPH["edges"]
+        }
+    }
+
+
+# =========================
+# ADVANCED SCAN API
+# =========================
+@app.get("/advanced_scan/{target}")
+def advanced_scan(target: str):
+    return advanced_full_scan(target)
+
+
+# =========================
+# TERMINAL MENU UPGRADE
+# =========================
+def menu():
+    while True:
+        print("""
+==============================
+🔥 FINAL BOSS OSINT PLATFORM
+==============================
+1. Full Scan
+2. Advanced Full Scan
+3. Social Scan
+4. IP Info
+5. Domain Info
+6. Email Scan
+7. Telegram Scan
+8. Generate Report
+9. View Local Intel
+10. System Stats
+11. Exit
+""")
+
+        c = input("Select: ")
+
+        if c == "1":
+            print(full_scan(input("Target: ")))
+
+        elif c == "2":
+            print(advanced_full_scan(input("Target: ")))
+
+        elif c == "3":
+            print(social(input("Username: ")))
+
+        elif c == "4":
+            print(ip_info(input("IP: ")))
+
+        elif c == "5":
+            print(domain_info(input("Domain: ")))
+
+        elif c == "6":
+            print(email_scan(input("Email: ")))
+
+        elif c == "7":
+            print(telegram_scan(input("Telegram username: ")))
+
+        elif c == "8":
+            print(generate_report(input("Target: ")))
+
+        elif c == "9":
+            print(get_intel(input("Target: ")))
+
+        elif c == "10":
+            print(stats())
+
+        elif c == "11":
+            break
+
+
+# =========================
+# FRONTEND STATUS PAGE
+# =========================
+@app.get("/dashboard")
+def dashboard():
+    return {
+        "name": "OSINT GOD MODE FINAL BOSS",
+        "modules": list(PLUGINS.keys()),
+        "stats": stats(),
+        "graph_nodes": len(GRAPH["nodes"]),
+        "graph_edges": len(GRAPH["edges"]),
+        "api_status": "ONLINE"
+    }
