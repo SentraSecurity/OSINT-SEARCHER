@@ -67,7 +67,7 @@ pip install -r requements.txt
 python3 OSINT.py
 ```
 
-##BASH INSTALL
+## BASH INSTALL
 
 ```bash
 git clone https://github.com/SentraSecurity/OSINT-SEARCHER.git
