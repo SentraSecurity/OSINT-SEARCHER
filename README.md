@@ -7,7 +7,7 @@
 Advanced OSINT Intelligence Framework
 </p>
 
-# 🔥 OSINT GOD MODE v2
+# 🔥 OSINT SEARCHER GOD MODE v2
 
 Advanced Open-Source Intelligence (OSINT) platform built with **FastAPI backend + React dashboard + plugin-based reconnaissance engine**.
 
