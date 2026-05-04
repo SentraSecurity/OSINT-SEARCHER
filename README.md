@@ -1,3 +1,12 @@
+<p align="center">
+  <img src="logo1.png" alt="OSINT-SEARCHER Banner" width="100%">
+</p>
+
+<h1 align="center">🔥 OSINT-SEARCHER</h1>
+<p align="center">
+Advanced OSINT Intelligence Framework
+</p>
+
 # 🔥 OSINT GOD MODE v2
 
 Advanced Open-Source Intelligence (OSINT) platform built with **FastAPI backend + React dashboard + plugin-based reconnaissance engine**.
