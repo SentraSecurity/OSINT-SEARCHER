@@ -85,6 +85,9 @@ source venv/bin/activate
 pip install -r requements.txt
 ```
 ```bash
+./install.sh
+```
+```bash
 chmod +x osint_god.sh
 ```
 ```bash
