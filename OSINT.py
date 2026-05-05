@@ -315,7 +315,7 @@ def clear_screen():
 def print_banner():
     print("""
     ╔══════════════════════════════════════════════════════════╗
-    ║                    🔥 OSINT GOD MODE v2.0               ║
+    ║                    🔥 OSINT GOD MODE v2.0                ║
     ║              Advanced OSINT Framework with Web UI        ║
     ╚══════════════════════════════════════════════════════════╝
     """)
@@ -337,8 +337,8 @@ def menu():
     │  7. 👤 Multi-Scan (Social+TG)                           │
     │  8. 📊 View Graph (Relations)                           │
     │  9. 📜 History & Reports                                │
-    │  10. 🧹 Clear Screen                                     │
-    │  11. 🚪 Exit                                             │
+    │  10. 🧹 Clear Screen                                    │
+    │  11. 🚪 Exit                                            │
     └─────────────────────────────────────────────────────────┘
         """)
         
