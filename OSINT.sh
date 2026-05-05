@@ -45,7 +45,7 @@ show_banner() {
     clear
     echo -e "${RED}"
     echo "    ╔══════════════════════════════════════════════════════════╗"
-    echo "    ║                    🔥 OSINT GOD MODE v2.0               ║"
+    echo "    ║                    🔥 OSINT GOD MODE v2.0                ║"
     echo "    ║              Advanced OSINT Framework - Bash             ║"
     echo "    ╚══════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
